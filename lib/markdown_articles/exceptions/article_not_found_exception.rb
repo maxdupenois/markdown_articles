@@ -1,0 +1,2 @@
+class ArticleNotFoundException < Exception
+end
