@@ -1,4 +1,6 @@
 require "markdown_articles/engine"
+require "markdown_articles/exceptions/article_not_found_exception"
+require "markdown_articles/renderers/html_with_pygments"
 require 'redcarpet'
 
 module MarkdownArticles

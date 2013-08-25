@@ -1,4 +1,4 @@
-= MarkdownArticles
+=MarkdownArticles
 
 (Yes, another markdown file based article/blog engine)
 
