@@ -48,13 +48,14 @@ module MarkdownArticles
               extract = content.dup
               next
             end
+            line = line.gsub(/[\n\r]/, "")
             content << line
             previous_line_is_text = line =~ /^[a-z0-9]/i
           end
         end
       end
       if extract.empty?
-        extract = content[0..2]
+        extract = content[0..3]
       end
       content = markdown.render(content.join("\n"))
       extract = markdown.render(extract.join("\n"))
@@ -71,7 +72,6 @@ module MarkdownArticles
       @markdown ||= ::Redcarpet::Markdown.new(
         MarkdownArticles::Renderers::HTMLWithPygments.new(
           prettify: true,
-          hard_wrap: true
         ), 
         no_intra_emphasis: true,
         fenced_code_blocks: true,
