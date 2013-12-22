@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :markdown_articles do
+# task :marti do
 #   # Task goes here
 # end

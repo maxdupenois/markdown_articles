@@ -1,13 +1,13 @@
-module MarkdownArticles
-  class MarkdownArticle
+module Marti
+  class Marticle
     attr_reader :content, :path, :last_updated_at, :extract
 
     def self.build(path)
-      MarkdownArticles.cache_store.fetch("marticle/"+path, 
-                                         expires_in: MarkdownArticles.expires_in) do
+      Marti.cache_store.fetch("marticle/"+path, 
+                                         expires_in: Marti.expires_in) do
         file = file_location(path)
         unless File.exists?(file)
-          raise ::MarkdownArticle::Exceptions::ArticleNotFoundException.new("#{path} not found") 
+          raise ::Marti::Exceptions::ArticleNotFoundException.new("#{path} not found") 
         end
         article = parse_file(file)
         article.send(:instance_variable_set, "@path".to_sym, path)
@@ -17,9 +17,9 @@ module MarkdownArticles
 
     def self.articles
       articles = []
-      Dir[File.join(MarkdownArticles.article_directory, "*.md")].each do |file|
+      Dir[File.join(Marti.article_directory, "*.md")].each do |file|
         path = file.gsub(/^.*\//, "").gsub(/\.md/, "")
-        articles << MarkdownArticle.build(path)
+        articles << Marticle.build(path)
       end
       articles.sort_by(&:last_updated_at)
       articles
@@ -28,7 +28,7 @@ module MarkdownArticles
     private
 
     def self.parse_file(file)
-      article = MarkdownArticle.new
+      article = Marticle.new
       in_meta = true
       content = []
       extract = []
@@ -65,12 +65,12 @@ module MarkdownArticles
     end
 
     def self.file_location(path)
-      File.join(MarkdownArticles.article_directory, "#{path}.md")
+      File.join(Marti.article_directory, "#{path}.md")
     end
 
     def self.markdown
       @markdown ||= ::Redcarpet::Markdown.new(
-        MarkdownArticles::Renderers::HTMLWithPygments.new(
+        Marti::Renderers::HTMLWithPygments.new(
           prettify: true,
         ), 
         no_intra_emphasis: true,

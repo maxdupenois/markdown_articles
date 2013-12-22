@@ -1,4 +1,4 @@
-module MarkdownArticles
+module Marti
   module Exceptions
     class ArticleNotFoundException < Exception
     end

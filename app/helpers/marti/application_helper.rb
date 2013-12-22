@@ -1,4 +1,4 @@
-module MarkdownArticles
+module Marti
   module ApplicationHelper
   end
 end

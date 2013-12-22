@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "markdown_articles/version"
+require "marti/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "markdown_articles"
-  s.version     = MarkdownArticles::VERSION
+  s.name        = "marti"
+  s.version     = Marti::VERSION
   s.authors     = ["Max Dupenois"]
   s.email       = ["max.dupenois@gmail.com"]
   s.homepage    = "http:://3void.com"

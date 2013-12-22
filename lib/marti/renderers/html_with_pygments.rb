@@ -1,5 +1,6 @@
+require 'redcarpet'
 require 'pygments'
-module MarkdownArticles 
+module Marti 
   module Renderers
     class HTMLWithPygments < ::Redcarpet::Render::HTML
       def block_code(code, language)

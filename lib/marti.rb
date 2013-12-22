@@ -1,9 +1,6 @@
-require "markdown_articles/engine"
-require "markdown_articles/exceptions/article_not_found_exception"
-require "markdown_articles/renderers/html_with_pygments"
 require 'redcarpet'
 
-module MarkdownArticles
+module Marti
   Config = Struct.new(:article_directory, :cache_store, 
                       :expires_in, :layout)
   def self.config
@@ -23,3 +20,7 @@ module MarkdownArticles
     @config.expires_in || 1.day
   end
 end
+require "marti/marticle"
+require "marti/engine"
+require "marti/exceptions/article_not_found_exception"
+require "marti/renderers/html_with_pygments"

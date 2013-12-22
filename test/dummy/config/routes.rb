@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount MarkdownArticles::Engine => "/markdown_articles"
+  mount Marti::Engine => "/marti"
 end

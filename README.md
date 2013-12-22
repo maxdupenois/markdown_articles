@@ -1,4 +1,4 @@
-=MarkdownArticles
+#Marti
 
 (Yes, another markdown file based article/blog engine)
 
