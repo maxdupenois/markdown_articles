@@ -1,13 +1,13 @@
 module Marti
-  class ArticlesController < ApplicationController
+  class MarticlesController < ApplicationController
     layout Marti.layout
     def index
-      @articles = Marticle.articles
+      @marticles = Marticle.articles
     end
     def show
       path = params[:path]
       begin 
-        @article = Marticle.build(path)
+        @marticle = Marticle.build(path)
       rescue ArticleNotFoundException => e
         redirect_to "/404", status: 404
       end
