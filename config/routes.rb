@@ -1,4 +1,4 @@
 Marti::Engine.routes.draw do
-  root to: "articles#index"
-  get '/:path' => "articles#show", as: :article
+  root to: "marticles#index"
+  get '/:path' => "marticles#show", as: :marticle
 end
