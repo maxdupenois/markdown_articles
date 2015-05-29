@@ -40,6 +40,7 @@ module Marti
           if line =~ /^\$/ && in_meta
             key, value = line.gsub(/^\$/, "").split(":").map(&:strip)
             value = parse_value(value)
+            value = Time.parse(value) if key == 'last_updated_at'
             article.send(:instance_variable_set, "@#{key}".to_sym, value)
             article.class.send(:attr_reader, key.to_sym)
           else
