@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    marti (0.0.2)
+    marti (0.1.0)
       pygments.rb
       rails (~> 4.1.0)
       redcarpet
