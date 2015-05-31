@@ -4,7 +4,7 @@ module Marti
   class << self
     attr_reader :config
     Config = Struct.new(:article_directory, :cache_store, 
-                        :expires_in, :layout, :article_not_found_path)
+                        :expires_in, :layout)
     def configure
       @config ||= Config.new
       yield(config)
@@ -13,11 +13,6 @@ module Marti
     def article_directory
       configured_check!
       config.article_directory || '.'
-    end
-
-    def article_not_found_path
-      configured_check!
-      config.article_not_found_path || '/404'
     end
 
     def layout
