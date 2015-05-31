@@ -15,14 +15,14 @@ class MarticleBuilderTest < ActiveSupport::TestCase
     assert_equal path, article.path
   end
 
-  test 'it should rais an error if the file does not exist' do
+  test 'it should raise an error if the file does not exist' do
     setup(:invalid)
-    error_thrown = begin
-               !builder.build 
-             rescue Marti::Exceptions::ArticleNotFoundException => _
-               true
-             end
-    assert error_thrown
+    error_raised = begin
+                     !builder.build 
+                   rescue Marti::Errors::ArticleNotFoundError => _
+                     true
+                   end
+    assert error_raised
   end
 
   def setup(type=nil)

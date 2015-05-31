@@ -11,7 +11,7 @@ module Marti
                                          expires_in: Marti.expires_in) do
         file = file_location(path)
         unless File.exists?(file)
-          raise ::Marti::Exceptions::ArticleNotFoundException.new("#{path} not found") 
+          raise ::Marti::Errors::ArticleNotFoundError.new("#{path} not found") 
         end
         article = Marti::MarticleParser.new(file).parse
         article.send(:instance_variable_set, "@path".to_sym, path)
