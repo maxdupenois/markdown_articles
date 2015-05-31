@@ -1,5 +1,6 @@
 module Marti
   class MarticlesController < ApplicationController
+    rescue_from Marti::Errors::ArticleNotFoundError, &Marti.article_not_found_proc
     layout Marti.layout
     def index
       render :index, locals: { marticles: marticles }

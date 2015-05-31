@@ -4,7 +4,7 @@ module Marti
   class << self
     attr_reader :config
     Config = Struct.new(:article_directory, :cache_store, 
-                        :expires_in, :layout)
+                        :expires_in, :layout, :article_not_found_proc)
     def configure
       @config ||= Config.new
       yield(config)
@@ -13,6 +13,11 @@ module Marti
     def article_directory
       configured_check!
       config.article_directory || '.'
+    end
+
+    def article_not_found_proc
+      configured_check!
+      config.article_not_found_proc || proc { raise ActionController::RoutingError.new('Article not found') }
     end
 
     def layout
