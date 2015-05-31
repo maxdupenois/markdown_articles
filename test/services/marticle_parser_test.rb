@@ -6,7 +6,7 @@ class MarticleParserTest < ActiveSupport::TestCase
   test 'can deal with a given updated at' do
     setup(:updated)
     article = parser.parse
-    assert_equal Time.new(2013, 10, 11), article.last_updated_at
+    assert_equal Time.new(2013, 10, 11, 23, 11, 33), article.last_updated_at
   end
 
   test 'will use file time if no updated at given' do

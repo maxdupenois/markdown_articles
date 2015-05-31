@@ -56,7 +56,8 @@ module Marti
     end
 
     def parse_meta_line(line)
-      key, value = line.gsub(/^\$/, "").split(":").map(&:strip)
+      key, *value = line.gsub(/^\$/, "").split(":").map(&:strip)
+      value = value.join(':')
       value = parse_value(value)
       # Account for manually setting time
       value = Time.parse(value) if key == 'last_updated_at'
