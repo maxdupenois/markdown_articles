@@ -13,3 +13,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 if ActiveSupport::TestCase.method_defined?(:fixture_path=)
   ActiveSupport::TestCase.fixture_path = File.expand_path("../fixtures", __FILE__)
 end
+
+Marti.configure do |config|
+  config.article_directory = File.join(File.dirname(__FILE__), 'fixtures')
+end
