@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Marti::VERSION
   s.authors     = ["Max Dupenois"]
   s.email       = ["max.dupenois@gmail.com"]
-  s.homepage    = "http:://3void.com"
+  s.homepage    = "http://3void.com"
   s.summary     = "Allows for really simple markdown based articles"
   s.description = "As I said in the summary"
 
